@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Simple Web Radio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+  :root {
+    --color-bg: #fafafa;
+    --color-primary: #222;
+    --color-secondary: #555;
+    --color-accent: #1e90ff;
+    --border-radius: 8px;
+    --spacing: 16px;
+  }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-primary);
+  }
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  a:hover, a:focus {
+    text-decoration: underline;
+  }
+  header {
+    background: white;
+    padding: var(--spacing);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  nav {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  .nav-links {
+    display: flex;
+    gap: var(--spacing);
+  }
+  .nav-links a {
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s ease;
+  }
+  .nav-links a:hover, .nav-links a:focus {
+    background-color: var(--color-accent);
+    color: white;
+  }
+  main {
+    max-width: 720px;
+    margin: 2rem auto;
+    padding: 0 var(--spacing);
+  }
+  section {
+    margin-bottom: 3rem;
+  }
+  h1, h2 {
+    margin-top: 0;
+    font-weight: 600;
+  }
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing);
+  }
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing);
+  }
+  p {
+    line-height: 1.5;
+    margin: 0 0 var(--spacing) 0;
+  }
+  /* Radio player */
+  .radio-player {
+    background: white;
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .radio-player button {
+    margin-top: var(--spacing);
+    background: var(--color-accent);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .radio-player button:hover, .radio-player button:focus {
+    background: #0d6efd;
+    outline: none;
+  }
+  audio {
+    width: 100%;
+    border-radius: var(--border-radius);
+  }
+  /* Program schedule */
+  .program-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  .program-list li {
+    background: white;
+    margin-bottom: 1rem;
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+  .program-time {
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+  .program-title {
+    font-weight: 600;
+    margin-top: 0.25rem;
+  }
+  .program-host {
+    font-style: italic;
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+  }
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: var(--spacing);
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+  }
+  /* Responsive */
+  @media (max-width: 480px) {
+    nav {
+      flex-direction: column;
+      gap: var(--spacing);
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav aria-label="Primary navigation">
+    <div class="logo">M Radio Jakarta</div>
+    <div class="nav-links">
+      <a href="#player">Listen</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+<main>
+  <section id="player" class="radio-player" aria-label="Live radio player">
+    <h1>M Radio Live Stream</h1>
+    <audio id="audioPlayer" preload="none" crossorigin="anonymous">
+      <source src="https://stream.zeno.fm/yvf78swnbd0uv" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <button id="btnPlayPause" aria-label="Play radio">Play</button>
+  </section>
+
+  <section id="schedule" aria-label="Program schedule">
+    <h2>Program Schedule</h2>
+    <ul class="program-list">
+      <li>
+        <div class="program-time">06:00 - 23:00</div>
+        <div class="program-title">Pop Hits</div>
+        <div class="program-day">Senin - Jum'at</div>
+        <p>Menyajikan Lagu Pop Yang Paling Ngehits</p>
+      </li>
+      <li>
+        <div class="program-time">06:00 - 14:00</div>
+        <div class="program-title">Dangdut Hits</div>
+        <div class="program-day">Sabtu & Minggu</div>
+        <p>Bergoyang Lagi Yuk Ah</p>
+      </li>
+      <li>
+        <div class="program-time">14:00 - 23:00</div>
+        <div class="program-title">GenTar Gendang Tarling</div>
+        <div class="program-day">Sabtu & Minggu</div>
+        <p>Bergoyang Lagi Yuk Ah</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="about" aria-label="About SimpleRadio">
+    <h2>About M Radio Jakarta</h2>
+    <p>M Radio Jakarta is a user-friendly web radio station focused on delivering your favorite music and shows in a clean and straightforward interface. Stream our live broadcast and enjoy carefully curated playlists around the clock.</p>
+  </section>
+
+  <section id="contact" aria-label="Contact SimpleRadio">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:contact@simpleradio.com">radiomusicfmjkt@gmail.com</a></p>
+    <p>Follow us on <a href="#">Twitter</a>, <a href="#">Facebook</a>, and <a href="https://www.instagram.com/mradio.id">Instagram</a>.</p>
+  </section>
+</main>
+<footer>
+  <p>© 2025 M Radio Jakarta. All rights reserved.</p>
+</footer>
+<script>
+  const audio = document.getElementById('audioPlayer');
+  const btnPlayPause = document.getElementById('btnPlayPause');
+  let playing = false;
+
+  btnPlayPause.addEventListener('click', () => {
+    if(playing){
+      audio.pause();
+      btnPlayPause.textContent = 'Play';
+    }else{
+      audio.play().catch(() => {});
+      btnPlayPause.textContent = 'Pause';
+    }
+  });
+
+  audio.addEventListener('play', () => {
+    playing = true;
+    btnPlayPause.textContent = 'Pause';
+  });
+
+  audio.addEventListener('pause', () => {
+    playing = false;
+    btnPlayPause.textContent = 'Play';
+  });
+</script>
+</body>
+</html>
+
