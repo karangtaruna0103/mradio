@@ -61,6 +61,10 @@
       <button type="submit">Login</button>
       <div class="error" id="errorMsg"></div>
     </form>
+    <button type="button" onclick="goBack()" style="margin-top: 12px; width: 100%; padding: 10px; border: none; border-radius: 8px; background: #444; color: white; cursor: pointer;">
+  ⬅ Back
+</button>
+
   </div>
 
   <script>
@@ -80,6 +84,11 @@
         errorMsg.textContent = 'Username atau password salah!';
       }
     });
+
+    function goBack() {
+  window.location.href = 'index.html'; // Ganti jika ingin ke halaman lain
+}
+
   </script>
 </body>
 </html>

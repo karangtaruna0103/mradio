@@ -36,6 +36,12 @@
 </head>
 <body>
   <h1>Daftar Request Lagu</h1>
+  <div style="text-align: right; margin-top: -40px;">
+  <button onclick="logout()" style="padding: 10px 20px; background: #ff5c5c; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    Logout
+  </button>
+</div>
+
   <table id="requestTable">
     <thead>
       <tr>
@@ -68,6 +74,13 @@
         tbody.appendChild(row);
       });
     }
+
+    function logout() {
+  // Jika kamu pakai sessionStorage atau localStorage untuk autentikasi, hapus di sini
+  // sessionStorage.removeItem('isLoggedIn');
+  window.location.href = 'login.html';
+}
+
   </script>
 </body>
 </html>
