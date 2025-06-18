@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - Request Lagu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+    }
+    h1 {
+      color: #06b6d4;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #1e1e1e;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #333;
+      text-align: left;
+    }
+    th {
+      background-color: #06b6d4;
+      color: black;
+    }
+    tr:hover {
+      background-color: #222;
+    }
+  </style>
+</head>
+<body>
+  <h1>Daftar Request Lagu</h1>
+  <table id="requestTable">
+    <thead>
+      <tr>
+        <th>Nama</th>
+        <th>Judul Lagu</th>
+        <th>Penyanyi</th>
+        <th>Pesan</th>
+        <th>Waktu</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const requestData = JSON.parse(localStorage.getItem('daftarRequestLagu')) || [];
+    const tbody = document.querySelector('#requestTable tbody');
+
+    if (requestData.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="5">Belum ada request lagu.</td></tr>';
+    } else {
+      requestData.forEach(req => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${req.nama}</td>
+          <td>${req.judul}</td>
+          <td>${req.penyanyi}</td>
+          <td>${req.pesan}</td>
+          <td>${req.waktu}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+  </script>
+</body>
+</html>

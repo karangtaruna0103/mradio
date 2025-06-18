@@ -301,7 +301,27 @@
         justify-content: center;
       }
     }
-  </style>
+  
+form label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 600;
+}
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #444;
+  color: white;
+  border-radius: 6px;
+  margin-top: 4px;
+  font-family: inherit;
+}
+form textarea {
+  resize: vertical;
+}
+
+</style>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 <body>
@@ -309,7 +329,7 @@
     <div class="container">
       <div class="logo" tabindex="0">M Radio Jakarta</div>
       <nav aria-label="Primary navigation">
-        <a href="#stations" tabindex="0">Stations</a>
+        <a href="login.html" tabindex="0">Login For Admin</a>
         <a href="#player" tabindex="0">Player</a>
       </nav>
     </div>
@@ -317,9 +337,12 @@
 
   <div class="news-ticker-wrapper" aria-label="Berita berjalan" role="region" tabindex="0">
     <div class="news-ticker" aria-live="off" aria-relevant="all" aria-atomic="true">
-      Hari Ini Akan Ada Talkshow Bersama Mas Bro Oye | Jam : 14 : 00 Wib - Selesai &nbsp;&nbsp;&nbsp;&nbsp;
-      Berita Akan Tersedia &nbsp;&nbsp;&nbsp;&nbsp;
-      Berita Akan Tersedia &nbsp;&nbsp;&nbsp;&nbsp;
+      Pemerintah mengumumkan kebijakan baru untuk mengatasi perubahan iklim. &nbsp;&nbsp;&nbsp;&nbsp;
+      Inflasi ekonomi menunjukkan penurunan signifikan di kuartal terakhir. &nbsp;&nbsp;&nbsp;&nbsp;
+      Tim nasional berhasil melaju ke babak final Piala Dunia. &nbsp;&nbsp;&nbsp;&nbsp;
+      Peluncuran smartphone terbaru hadir dengan fitur canggih dan desain futuristik. &nbsp;&nbsp;&nbsp;&nbsp;
+      Vaksin baru menunjukkan hasil positif dalam uji klinis fase tiga. &nbsp;&nbsp;&nbsp;&nbsp;
+      Proyek kereta cepat antara kota besar telah dimulai bulan ini.
     </div>
   </div>
 
@@ -330,7 +353,7 @@
     </section>
     <section class="player" id="player" aria-live="polite" aria-atomic="true" aria-label="Kontrol dan informasi pemutar audio" tabindex="0">
       <h2 id="player-station-name" tabindex="0">Pilih stasiun untuk mulai memutar</h2>
-      <img src="https://cdn.onlineradiobox.com/img/l/3/84093.v35.png" alt="" class="station-logo-large" aria-hidden="true" />
+      <img src="" alt="" class="station-logo-large" aria-hidden="true" />
       <div class="controls" role="group" aria-label="Kontrol pemutar">
         <button id="btn-play" aria-label="Putar" disabled>
           <span class="material-icons">play_arrow</span>
@@ -349,7 +372,52 @@
       <div class="player-status" aria-live="polite" aria-atomic="true"></div>
       <audio crossorigin="anonymous"></audio>
     </section>
-  </main>
+  
+<section class="station-list" style="flex: 1 1 100%; margin-top: 40px;">
+  <h2>Request Lagu</h2>
+  <form id="requestForm">
+    <label for="nama">Nama:</label>
+    <input type="text" id="nama" name="nama" required>
+
+    <label for="judul">Judul Lagu:</label>
+    <input type="text" id="judul" name="judul" required>
+
+    <label for="penyanyi">Penyanyi:</label>
+    <input type="text" id="penyanyi" name="penyanyi" required>
+
+    <label for="pesan">Pesan:</label>
+    <textarea id="pesan" name="pesan" rows="3" placeholder="Opsional..."></textarea>
+
+    <button type="submit" style="margin-top: 16px; background: linear-gradient(135deg, #06b6d4, #8b5cf6); border: none; padding: 12px 16px; color: white; border-radius: 6px; cursor: pointer;">
+      Kirim Request
+    </button>
+    <div id="status" style="margin-top: 10px; color: #8b5cf6;"></div>
+  </form>
+</section>
+
+<section class="station-list" style="flex: 1 1 100%; margin-top: 40px;">
+  <h2>Program Acara Kami</h2>
+  <ul style="list-style: none; padding-left: 0;">
+    <li><strong>Senin - Jum'at</strong></li>
+    <br>
+    <li><strong>07:00 - 11:00:</strong> Music Gen Z</li>
+    <li><strong>11:00 - 16:00:</strong> Beat Zone</li>
+    <li><strong>16:00 - 19:00:</strong> Senja Musik</li>
+    <li><strong>19:00 - 23:00:</strong> Musik Malam</li>
+    <li><strong>18:00 - 21:00:</strong> Cerita Malam</li>
+  </ul>
+
+   <ul style="list-style: none; padding-left: 0;">
+    <li><strong>Sabtu & Minggu</strong></li>
+    <br>
+    <li><strong>07:00 - 14:00:</strong> Dangdut Hits</li>
+    <li><strong>14:00 - 19:00:</strong> Gendang Tarling</li>
+    <li><strong>19:00 - 23:00:</strong> DJ Malam Gen Z</li>
+  </ul>
+</section>
+
+
+</main>
 
   <footer>
     &copy; 2025 M Radio Jakarta. All rights reserved.
@@ -525,8 +593,41 @@
       updatePlayPauseButtons();
       updatePlayerStatus('Pilih stasiun untuk mulai memutar.');
 
-    })();
+    
+// Form Request Lagu
+const requestForm = document.getElementById('requestForm');
+const statusEl = document.getElementById('status');
+
+if (requestForm) {
+  requestForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const nama = document.getElementById('nama').value;
+    const judul = document.getElementById('judul').value;
+    const penyanyi = document.getElementById('penyanyi').value;
+    const pesan = document.getElementById('pesan').value;
+
+    const request = { nama, judul, penyanyi, pesan, waktu: new Date().toLocaleString() };
+
+    const daftarRequest = JSON.parse(localStorage.getItem('daftarRequestLagu')) || [];
+    daftarRequest.push(request);
+    localStorage.setItem('daftarRequestLagu', JSON.stringify(daftarRequest));
+
+    statusEl.textContent = 'Request berhasil dikirim!';
+    requestForm.reset();
+  });
+}
+
+})();
   </script>
+
+  <div style="position: fixed; bottom: 24px; right: 24px; z-index: 9999;">
+  <a href="https://wa.me/6285710675351" target="_blank"
+     style="background-color: #25D366; color: white; padding: 12px 16px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: inline-flex; align-items: center;">
+    <img src="https://img.icons8.com/ios-filled/24/ffffff/whatsapp.png" style="margin-right: 8px;"> Chat Admin
+  </a>
+</div>
+
 </body>
 </html>
 
