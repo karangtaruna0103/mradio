@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>M POP HITS 2025</title>
+  <title>Tangga Lagu Dangdut</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(145deg, #000428, #004e92);
+      background: linear-gradient(145deg, #2c003e, #3d0059, #1b002e);
       color: #fff;
     }
 
     header, footer {
-      background: rgba(0, 0, 0, 0.85);
+      background-color: rgba(0, 0, 0, 0.85);
       text-align: center;
       padding: 1.5rem;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      box-shadow: 0 0 20px rgba(255, 0, 153, 0.2);
     }
 
     header h1 {
       font-size: 2.3rem;
-      color: #00eaff;
+      color: #ff00cc;
       margin: 0;
       animation: fadeInDown 1s ease;
     }
@@ -33,13 +33,13 @@
     nav a {
       margin: 0 15px;
       text-decoration: none;
-      color: #00eaff;
+      color: #ff66d9;
       font-weight: bold;
       transition: color 0.3s ease;
     }
 
     nav a:hover {
-      color: #ffffff;
+      color: #fff;
     }
 
     main {
@@ -56,32 +56,32 @@
       backdrop-filter: blur(15px);
       padding: 40px;
       border-radius: 20px;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.15);
+      box-shadow: 0 0 50px rgba(255, 0, 153, 0.15);
       animation: fadeInUp 1s ease;
     }
 
     .chart h2 {
       text-align: center;
       font-size: 2rem;
-      color: #00eaff;
-      margin-bottom: 30px;
+      color: #ff66d9;
+      margin-bottom: 35px;
     }
 
     ol {
       list-style: none;
       padding: 0;
       margin: 0;
-      counter-reset: chart;
+      counter-reset: dangdut;
     }
 
     ol li {
-      counter-increment: chart;
+      counter-increment: dangdut;
       position: relative;
-      padding: 20px 30px;
-      margin-bottom: 22px;
+      padding: 25px 30px;
+      margin-bottom: 25px;
       background: rgba(0, 0, 0, 0.4);
       border-radius: 14px;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.12);
+      box-shadow: 0 0 20px rgba(255, 0, 153, 0.12);
       transition: all 0.3s ease;
       opacity: 0;
       transform: translateX(-30px);
@@ -89,20 +89,20 @@
     }
 
     ol li::before {
-      content: counter(chart) ". ";
+      content: counter(dangdut) ". ";
       position: absolute;
       left: 20px;
       top: 50%;
       transform: translateY(-50%);
       font-size: 1.3rem;
-      color: #00eaff;
+      color: #ff00cc;
       font-weight: bold;
     }
 
     ol li:hover {
       background: rgba(0, 0, 0, 0.6);
       transform: translateX(10px);
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.25);
+      box-shadow: 0 0 25px rgba(255, 0, 153, 0.25);
     }
 
     ol li span {
@@ -112,7 +112,7 @@
     }
 
     footer {
-      margin-top: 40px;
+      margin-top: 50px;
       color: #ccc;
       font-size: 0.9rem;
     }
@@ -186,7 +186,7 @@
       }
 
       ol li {
-        padding: 18px;
+        padding: 20px;
         font-size: 1rem;
       }
 
@@ -199,7 +199,7 @@
 </head>
 <body>
   <header>
-    <h1>🎶 M POP HITS 2025</h1>
+    <h1>🎤 M DANGDUT HITS 2025</h1>
     <nav>
       <a href="index.html">Beranda</a>
       <a href="chart.html">Pop</a>
@@ -210,47 +210,49 @@
 
   <main>
     <section class="chart">
-      <h2>Top 10 Songs Of The Month</h2>
-      <ol id="chart-list"></ol>
+      <h2>Top 10 Lagu Dangdut Pilihan</h2>
+      <ol id="chart-dangdut"></ol>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Radio Online Kita | Musik Terbaik Hari Ini</p>
+    <p>© 2025 M Radio Jakarta | Radio Online No. 1 Di Jakarta</p>
   </footer>
 
-  <!-- WhatsApp Chat -->
+  <!-- Pop-up WhatsApp -->
   <div class="popup-wa">
-    <a href="https://wa.me/6285710675351?text=Halo%20Admin%2C%20saya%20mau%20request%20lagu!" target="_blank" title="Chat Admin">
-      <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" />
+    <a href="https://wa.me/6285710675351?text=Halo%20Admin%2C%20saya%20mau%20request%20lagu%20dangdut!" target="_blank" title="Chat Admin via WhatsApp">
+      <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="Chat WhatsApp" />
     </a>
   </div>
 
-  <!-- Script Chart -->
+  <!-- Script Chart Lagu -->
   <script>
-    const chartLagu = [
-      "Matta Band - Yang Cantik Banyak Yang Nakal",
-      "Ananda - Dawai Cinta",
-      "Karwito - Engkau Yang Ku Inginkan",
-      "Sahara - Rindu Ibu",
-      "Dadali Band - Sampai Maut Memisahkan",
-      "Talita - Teman Sejati Ku",
-      "Betrand Putra Onsu - Bila Memang Kamu",
-      "The Chasmala - Berharap Tak Berpisah",
-      "Anzu Band - Di Ujung Waktu",
-      "Papinka Band - Kau Selalu Di Hati"
+    const dangdutChart = [
+      "Via Vallen - Sayang",
+      "Nella Kharisma - Konco Mesra",
+      "Denny Caknan - Satru",
+      "Happy Asmara - Tak Ikhlasno",
+      "Jihan Audy - Prei Kanan Kiri",
+      "Yeni Inka - Pamer Bojo",
+      "Lesti - Sekali Seumur Hidup",
+      "Woro Widowati - Cidro 2",
+      "Dory Harsa - Banyu Moto",
+      "Fariz Adam - Stecu"
     ];
 
-    const chartList = document.getElementById("chart-list");
+    const olDangdut = document.getElementById("chart-dangdut");
 
-    chartLagu.forEach((lagu, i) => {
-      const li = document.createElement("li");
-      const span = document.createElement("span");
-      span.textContent = lagu;
-      li.appendChild(span);
-      li.style.animationDelay = `${i * 0.1}s`;
-      chartList.appendChild(li);
-    });
+    if (olDangdut) {
+      dangdutChart.forEach((lagu, index) => {
+        const li = document.createElement("li");
+        const span = document.createElement("span");
+        span.textContent = lagu;
+        li.appendChild(span);
+        li.style.animationDelay = `${index * 0.1}s`;
+        olDangdut.appendChild(li);
+      });
+    }
   </script>
 </body>
 </html>
