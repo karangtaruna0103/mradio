@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>M Radio Jakarta</title>
   <link rel="stylesheet" href="style.css"/>
   <script defer src="script.js"></script>
@@ -130,14 +130,16 @@
   </header>
 
   <main>
-    <!-- Pemutar Radio -->
-    <section class="player">
-      <h2>🎧 Sedang Mengudara</h2>
-      <audio id="radioPlayer" controls autoplay>
-        <source src="https://stream.zeno.fm/yvf78swnbd0uv" type="audio/mpeg">
-        Browser Anda tidak mendukung pemutar audio.
-      </audio>
-    </section>
+   <section class="player">
+  <h2>🎧 Sedang Mengudara</h2>
+  <div class="audio-wrapper">
+    <audio id="radioPlayer" controls autoplay>
+      <source src="assets/audio/stream.mp3" type="audio/mpeg">
+      Browser Anda tidak mendukung audio.
+    </audio>
+  </div>
+</section>
+
 
     <!-- Jadwal Siaran Hari Ini -->
     <section class="jadwal">

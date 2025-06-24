@@ -11,10 +11,35 @@ header, footer {
   padding: 1rem;
 }
 
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #00eaff;
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 8px 6px;
+    font-size: 0.95rem;
+  }
+
+  .chart h2,
+  section h2 {
+    font-size: 1.4rem;
+  }
+
+  audio {
+    height: 40px;
+  }
+
+  ol li {
+    font-size: 1rem;
+    padding: 20px;
+  }
+
+  .popup-wa img {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 main {
@@ -29,10 +54,23 @@ main {
   max-width: 700px;
 }
 
+.audio-wrapper {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
 audio {
   width: 100%;
-  margin-top: 10px;
+  height: 40px;
+  outline: none;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 255, 200, 0.15);
 }
+
 
 li {
   padding: 5px 0;
