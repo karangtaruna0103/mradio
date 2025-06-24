@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Berita Radio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(145deg, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header, footer {
+      background: rgba(0, 0, 0, 0.85);
+      text-align: center;
+      padding: 1.5rem;
+      box-shadow: 0 0 20px rgba(0, 255, 200, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.3rem;
+      color: #00ffc3;
+      margin: 0;
+      animation: fadeInDown 1s ease;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #00eaff;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    main {
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .news-card {
+      width: 100%;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 1s ease;
+    }
+
+    .news-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 40px rgba(0, 255, 200, 0.25);
+    }
+
+    .news-card h3 {
+      color: #00eaff;
+      margin-top: 0;
+    }
+
+    .news-card p {
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    .news-date {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.7rem; }
+      .news-card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📰 Berita & Pengumuman Radio</h1>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="chart.html">Chart Pop</a>
+      <a href="berita.html">Berita</a>
+      <a href="chartdangdut.html">Chart Dangdut</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="news-card">
+      <span class="news-date">24 Juni 2025</span>
+      <h3>Radio Kita Hadirkan Program Baru: "Musik Malam Minggu"</h3>
+      <p>
+        Mulai minggu ini, Radio Online Kita menghadirkan program spesial setiap Sabtu malam, 
+        berisi lagu-lagu galau, jazz malam, hingga request dari pendengar. Jangan lewatkan 
+        acara yang menemani malam panjangmu!
+      </p>
+    </div>
+
+    <div class="news-card">
+      <span class="news-date">22 Juni 2025</span>
+      <h3>Update Jadwal Siaran Terbaru</h3>
+      <p>
+        Jadwal siaran kami telah diperbarui untuk memberikan pengalaman mendengarkan yang 
+        lebih menyenangkan. Cek langsung di halaman beranda untuk info lengkapnya.
+      </p>
+    </div>
+
+    <div class="news-card">
+      <span class="news-date">18 Juni 2025</span>
+      <h3>Kolaborasi Eksklusif Bareng Bintang Tamu!</h3>
+      <p>
+        Kami akan menghadirkan sesi live bersama musisi indie lokal secara langsung. Nantikan 
+        pengumuman tamu spesial minggu depan!
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 M Radio Jakarta | Radio Online No. 1 Di Jakarta</p>
+  </footer>
+
+   <!-- Pop-up Chat WhatsApp -->
+<div id="whatsapp-chat" class="popup-wa">
+  <a href="https://wa.me/6285710675351?text=Halo%20Admin%20Radio%20Online!" target="_blank">
+    <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="Chat WhatsApp" />
+  </a>
+</div>
+
+</body>
+</html>

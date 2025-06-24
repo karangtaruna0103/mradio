@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #121212;
+  color: #fff;
+}
+
+header, footer {
+  background: #1f1f1f;
+  text-align: center;
+  padding: 1rem;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #00eaff;
+}
+
+main {
+  padding: 20px;
+}
+
+.player, .jadwal, .chart {
+  margin: 20px auto;
+  padding: 20px;
+  background: #222;
+  border-radius: 12px;
+  max-width: 700px;
+}
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+}
+
+li {
+  padding: 5px 0;
+}
+.popup-wa {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999;
+  background: #25d366;
+  border-radius: 50%;
+  padding: 12px;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+  animation: popIn 1s ease;
+  transition: transform 0.3s ease;
+}
+
+.popup-wa:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(0, 255, 0, 0.6);
+}
+
+.popup-wa img {
+  width: 48px;
+  height: 48px;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+footer .sosial-media {
+  margin-top: 15px;
+}
+
+footer .sosial-media a {
+  margin: 0 8px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+footer .sosial-media a:hover {
+  transform: scale(1.2);
+}
