@@ -2,31 +2,31 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M Radio Jakarta</title>
-  <link rel="stylesheet" href="style.css"/>
-  <script defer src="script.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>M RADIO JAKARTA</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(145deg, #0f0c29, #302b63, #24243e);
+      background: linear-gradient(to bottom, #000428, #004e92);
       color: #fff;
-      min-height: 100vh;
-      overflow-x: hidden;
     }
 
     header, footer {
       background: rgba(0, 0, 0, 0.85);
       text-align: center;
       padding: 1.5rem;
-      box-shadow: 0 0 20px rgba(0, 255, 200, 0.1);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
     }
 
     header h1 {
       font-size: 2.5rem;
       margin: 0;
-      color: #00ffc3;
+      color: #00eaff;
       animation: fadeInDown 1s ease;
     }
 
@@ -43,65 +43,67 @@
     }
 
     nav a:hover {
-      color: #ffffff;
+      color: #fff;
     }
 
     main {
-      padding: 60px 20px 40px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 50px;
+      padding: 40px 20px;
     }
 
-    section {
-      width: 100%;
+    .intro {
       max-width: 800px;
+      text-align: center;
       background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(15px);
+      padding: 30px;
       border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 0 40px rgba(0, 255, 200, 0.12);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
       animation: fadeInUp 1s ease;
     }
 
-    section h2 {
-      font-size: 1.8rem;
-      color: #00eaff;
-      margin-bottom: 25px;
-      text-align: center;
+    .intro h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #00ffff;
     }
 
-    audio {
-      width: 100%;
-      outline: none;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 255, 200, 0.2);
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    ul li {
-      padding: 12px 0;
+    .intro p {
       font-size: 1.1rem;
-      border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-      margin-bottom: 8px;
-      transition: padding-left 0.3s ease;
-    }
-
-    ul li:hover {
-      padding-left: 10px;
-      color: #00ffc3;
+      line-height: 1.6;
     }
 
     footer {
-      margin-top: 50px;
+      margin-top: 40px;
       font-size: 0.9rem;
-      color: #bbb;
+      color: #ccc;
     }
 
+    .popup-wa {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 999;
+      background: #25d366;
+      border-radius: 50%;
+      padding: 12px;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+      animation: popIn 1s ease;
+      transition: transform 0.3s ease;
+    }
+
+    .popup-wa:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(0, 255, 0, 0.6);
+    }
+
+    .popup-wa img {
+      width: 48px;
+      height: 48px;
+    }
+
+    /* Animasi */
     @keyframes fadeInDown {
       from {opacity: 0; transform: translateY(-30px);}
       to {opacity: 1; transform: translateY(0);}
@@ -112,9 +114,56 @@
       to {opacity: 1; transform: translateY(0);}
     }
 
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.8rem; }
-      section h2 { font-size: 1.4rem; }
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.5) translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* Sosial Media */
+    .sosial-media {
+      margin-top: 15px;
+    }
+
+    .sosial-media a {
+      margin: 0 8px;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .sosial-media a:hover {
+      transform: scale(1.2);
+    }
+
+    /* Responsif */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 6px;
+        font-size: 0.95rem;
+      }
+
+      .intro h2 {
+        font-size: 1.5rem;
+      }
+
+      .intro p {
+        font-size: 1rem;
+      }
+
+      .popup-wa img {
+        width: 40px;
+        height: 40px;
+      }
     }
   </style>
 </head>
@@ -124,52 +173,51 @@
     <nav>
       <a href="index.html">Beranda</a>
       <a href="chart.html">Chart Pop</a>
+      <a href="chartdangdut.html"> Chart Dangdut</a>
       <a href="berita.html">Berita</a>
-      <a href="chartdangdut.html">Chart Dangdut</a>
     </nav>
   </header>
 
   <main>
-   <section class="player">
-  <h2>🎧 Sedang Mengudara</h2>
-  <div class="audio-wrapper">
-    <audio id="radioPlayer" controls autoplay>
-      <source src="assets/audio/stream.mp3" type="audio/mpeg">
-      Browser Anda tidak mendukung audio.
+    <section class="intro">
+        <section class="audio-player">
+        <h2>🎧 Sedang Mengudara</h2>
+        <div class="player-container">
+        <audio controls autoplay>
+        <source src="https://stream.zeno.fm/yvf78swnbd0uv" type="audio/mpeg">
+      Browser Anda tidak mendukung pemutar audio.
     </audio>
   </div>
 </section>
-
-
-    <!-- Jadwal Siaran Hari Ini -->
-    <section class="jadwal">
-      <h2>🗓 Jadwal Siaran Hari Ini</h2>
-      <ul id="jadwal-hari-ini"></ul>
+<br>
+      <h2>Selamat Datang di M Radio Jakarta</h2>
+      <p>
+        Nikmati siaran musik terbaik sepanjang hari. Dengarkan lagu-lagu pilihan dari berbagai genre seperti pop, dangdut, dan hits terbaru lainnya.  
+        Jangan lupa follow kami di sosial media dan request lagu favoritmu sekarang juga!
+      </p>
     </section>
   </main>
 
   <footer>
-  <p>© 2025 M Radio Jakarta | Radio Online No. 1 Di Jakarta</p>
-  <div class="sosial-media">
-    <a href="https://instagram.com/mradio.id" target="_blank" title="Instagram">
-      <img src="https://img.icons8.com/fluency/32/instagram-new.png" alt="Instagram" />
-    </a>
-    <a href="" target="_blank" title="Facebook">
-      <img src="https://img.icons8.com/fluency/32/facebook-new.png" alt="Facebook" />
-    </a>
-    <a href="" target="_blank" title="YouTube">
-      <img src="https://img.icons8.com/fluency/32/youtube-play.png" alt="YouTube" />
+    <p>© 2025 M Radio Jakarta | Radio Online No. 1 Di Jakarta</p>
+    <div class="sosial-media">
+      <a href="https://instagram.com/mradio.id" target="_blank" title="Instagram">
+        <img src="https://img.icons8.com/fluency/32/instagram-new.png" alt="Instagram" />
+      </a>
+      <a href="" target="_blank" title="Facebook">
+        <img src="https://img.icons8.com/fluency/32/facebook-new.png" alt="Facebook" />
+      </a>
+      <a href="" target="_blank" title="YouTube">
+        <img src="https://img.icons8.com/fluency/32/youtube-play.png" alt="YouTube" />
+      </a>
+    </div>
+  </footer>
+
+  <!-- Pop-up WhatsApp -->
+  <div class="popup-wa">
+    <a href="https://wa.me/6281234567890?text=Halo%20Admin%2C%20saya%20mau%20request%20lagu!" target="_blank">
+      <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" />
     </a>
   </div>
-</footer>
-
-
-  <!-- Pop-up Chat WhatsApp -->
-<div id="whatsapp-chat" class="popup-wa">
-  <a href="https://wa.me/6285710675351?text=Halo%20Admin%20Radio%20Online!" target="_blank">
-    <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="Chat WhatsApp" />
-  </a>
-</div>
-
 </body>
 </html>

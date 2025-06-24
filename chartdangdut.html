@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tangga Lagu Dangdut</title>
   <style>
     body {
@@ -10,7 +10,6 @@
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(145deg, #2c003e, #3d0059, #1b002e);
       color: #fff;
-      overflow-x: hidden;
     }
 
     header, footer {
@@ -21,7 +20,7 @@
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.3rem;
       color: #ff00cc;
       margin: 0;
       animation: fadeInDown 1s ease;
@@ -44,7 +43,7 @@
     }
 
     main {
-      padding: 60px 20px 40px;
+      padding: 40px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -79,7 +78,7 @@
       counter-increment: dangdut;
       position: relative;
       padding: 25px 30px;
-      margin-bottom: 28px;
+      margin-bottom: 25px;
       background: rgba(0, 0, 0, 0.4);
       border-radius: 14px;
       box-shadow: 0 0 20px rgba(255, 0, 153, 0.12);
@@ -102,7 +101,7 @@
 
     ol li:hover {
       background: rgba(0, 0, 0, 0.6);
-      transform: translateX(15px);
+      transform: translateX(10px);
       box-shadow: 0 0 25px rgba(255, 0, 153, 0.25);
     }
 
@@ -118,25 +117,6 @@
       font-size: 0.9rem;
     }
 
-    /* Animasi */
-    @keyframes fadeInDown {
-      from {opacity: 0; transform: translateY(-30px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes fadeInUp {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes slideIn {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    /* Pop-up Chat WhatsApp */
     .popup-wa {
       position: fixed;
       bottom: 25px;
@@ -160,6 +140,24 @@
       height: 48px;
     }
 
+    /* Animations */
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
     @keyframes popIn {
       from {
         opacity: 0;
@@ -171,11 +169,31 @@
       }
     }
 
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.8rem; }
-      .chart h2 { font-size: 1.4rem; }
-      ol li { padding: 20px; font-size: 1rem; }
-      ol li span { margin-left: 25px; }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .chart h2 {
+        font-size: 1.4rem;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 6px;
+        font-size: 0.95rem;
+      }
+
+      ol li {
+        padding: 20px;
+        font-size: 1rem;
+      }
+
+      .popup-wa img {
+        width: 40px;
+        height: 40px;
+      }
     }
   </style>
 </head>
@@ -185,8 +203,8 @@
     <nav>
       <a href="index.html">Beranda</a>
       <a href="chart.html">Chart Pop</a>
-      <a href="berita.html">Berita</a>
       <a href="chartdangdut.html">Chart Dangdut</a>
+      <a href="berita.html">Berita</a>
     </nav>
   </header>
 
@@ -208,7 +226,7 @@
     </a>
   </div>
 
-  <!-- Script Tangga Lagu -->
+  <!-- Script Chart Lagu -->
   <script>
     const dangdutChart = [
       "Via Vallen - Sayang",
@@ -219,8 +237,8 @@
       "Yeni Inka - Pamer Bojo",
       "Lesti - Sekali Seumur Hidup",
       "Woro Widowati - Cidro 2",
-      "Tenxi, Naykilla & Jemsii - Garam & Madu",
-      "Faris Adam - Stecu"
+      "Dory Harsa - Banyu Moto",
+      "Fariz Adam - Stecu"
     ];
 
     const olDangdut = document.getElementById("chart-dangdut");

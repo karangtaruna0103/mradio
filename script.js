@@ -21,29 +21,3 @@ if (ulJadwal && jadwal[hari]) {
     ulJadwal.appendChild(li);
   });
 }
-
-const chart = [
-  "Matta Band - Yang Cantik Banyak Yang Nakal",
-  "Ananda - Dawai Cinta",
-  "Karwito - Engkau Yang Ku Inginkan",
-  "Sahara - Rindu Ibu",
-  "Dadali Band - Sampai Maut Memisahkan",
-  "Talita - Teman Sejati Ku",
-  "Betrand Putra Onsu - Bila Memang Kamu",
-  "The Chasmala - Berharap Tak Berpisah",
-  "Anzu Band - Di Ujung Waktu",
-  "Papinka Band - Kau Selalu Di Hati"
-];
-
-const olChart = document.getElementById("tangga-lagu");
-
-if (olChart) {
-  chart.forEach((lagu, index) => {
-    const li = document.createElement('li');
-    const span = document.createElement('span');
-    span.textContent = lagu;
-    li.appendChild(span);
-    li.style.animationDelay = `${index * 0.1}s`;
-    olChart.appendChild(li);
-  });
-}
