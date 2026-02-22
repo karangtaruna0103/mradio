@@ -1,223 +1,1457 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>M RADIO JAKARTA</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #000428, #004e92);
-      color: #fff;
-    }
-
-    header, footer {
-      background: rgba(0, 0, 0, 0.85);
-      text-align: center;
-      padding: 1.5rem;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin: 0;
-      color: #00eaff;
-      animation: fadeInDown 1s ease;
-    }
-
-    nav {
-      margin-top: 10px;
-    }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #00eaff;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #fff;
-    }
-
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-    }
-
-    .intro {
-      max-width: 800px;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
-      animation: fadeInUp 1s ease;
-    }
-
-    .intro h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #00ffff;
-    }
-
-    .intro p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #ccc;
-    }
-
-    .popup-wa {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      z-index: 999;
-      background: #25d366;
-      border-radius: 50%;
-      padding: 12px;
-      box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
-      animation: popIn 1s ease;
-      transition: transform 0.3s ease;
-    }
-
-    .popup-wa:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 25px rgba(0, 255, 0, 0.6);
-    }
-
-    .popup-wa img {
-      width: 48px;
-      height: 48px;
-    }
-
-    /* Animasi */
-    @keyframes fadeInDown {
-      from {opacity: 0; transform: translateY(-30px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes fadeInUp {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes popIn {
-      from {
-        opacity: 0;
-        transform: scale(0.5) translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
-    }
-
-    /* Sosial Media */
-    .sosial-media {
-      margin-top: 15px;
-    }
-
-    .sosial-media a {
-      margin: 0 8px;
-      display: inline-block;
-      transition: transform 0.3s ease;
-    }
-
-    .sosial-media a:hover {
-      transform: scale(1.2);
-    }
-
-    /* Responsif */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.8rem;
-      }
-
-      nav a {
-        display: inline-block;
-        margin: 6px;
-        font-size: 0.95rem;
-      }
-
-      .intro h2 {
-        font-size: 1.5rem;
-      }
-
-      .intro p {
-        font-size: 1rem;
-      }
-
-      .popup-wa img {
-        width: 40px;
-        height: 40px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M Radio Apps</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --dark-bg: #1a1a2e;
+            --card-bg: #16213e;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--dark-bg);
+            color: white;
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+        
+        .bg-animation {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Header */
+        .app-header {
+            background: var(--primary-gradient);
+            padding: 20px;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .live-badge {
+            background: #ff4757;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Player */
+        .player-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .album-art {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            animation: spin 10s linear infinite;
+            animation-play-state: paused;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .album-art.playing { animation-play-state: running; }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .play-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary-gradient);
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s;
+        }
+        
+        .play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+        }
+        
+        .play-btn:active {
+            transform: scale(0.95);
+        }
+        
+        /* Program Banner */
+        .current-program-banner {
+            background: var(--primary-gradient);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .current-program-banner::before {
+            content: 'ON AIR';
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background: #ff4757;
+            color: white;
+            padding: 5px 40px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            transform: rotate(45deg);
+        }
+        
+        /* Program List */
+        .program-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 18px 20px;
+            margin: 10px 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .program-card:hover {
+            transform: translateX(5px);
+            border-color: #667eea;
+        }
+        
+        .program-card.active {
+            border: 2px solid #ff4757;
+            background: rgba(255, 71, 87, 0.1);
+        }
+        
+        .program-info h6 {
+            margin: 0;
+            font-size: 1rem;
+        }
+        
+        .program-info small {
+            color: #888;
+            font-size: 0.8rem;
+        }
+        
+        .program-time {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        
+        /* Settings Page */
+        .settings-page {
+            display: none;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .settings-page.active { display: block; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .settings-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 25px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .settings-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            border: 4px solid rgba(255,255,255,0.1);
+        }
+        
+        .settings-avatar.logged-in {
+            background: linear-gradient(135deg, #2ed573 0%, #1e90ff 100%);
+        }
+        
+        .settings-menu {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .settings-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .settings-item:hover {
+            background: rgba(255,255,255,0.05);
+            color: white;
+        }
+        
+        .settings-item:last-child { border-bottom: none; }
+        
+        .settings-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .settings-content { flex: 1; }
+        
+        .settings-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 2px; }
+        
+        .settings-subtitle { font-size: 0.8rem; color: #888; }
+        
+        .section-title {
+            font-size: 0.8rem;
+            color: #667eea;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 20px 15px 10px;
+            font-weight: 600;
+        }
+        
+        /* Auth Buttons */
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .btn-auth {
+            flex: 1;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-login {
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #667eea;
+        }
+        
+        .btn-login:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-signup {
+            background: var(--primary-gradient);
+            color: white;
+        }
+        
+        .btn-signup:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-logout {
+            background: #ff4757;
+            color: white;
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            margin-top: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-logout:hover {
+            background: #ff3344;
+        }
+        
+        /* Modal */
+        .modal-content {
+            background: var(--card-bg);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .modal-header { border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .modal-footer { border-top: 1px solid rgba(255,255,255,0.1); }
+        
+        .form-control, .form-select {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            background: rgba(255,255,255,0.15);
+            border-color: #667eea;
+            color: white;
+            box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .form-select option {
+            background: var(--card-bg);
+            color: white;
+        }
+        
+        /* Bottom Nav */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--card-bg);
+            padding: 12px 0;
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            z-index: 999;
+        }
+        
+        .nav-item {
+            color: #888;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.7rem;
+            transition: all 0.3s;
+            padding: 5px 15px;
+            border-radius: 10px;
+        }
+        
+        .nav-item i { font-size: 1.3rem; }
+        
+        .nav-item:hover { color: #667eea; }
+        
+        .nav-item.active {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            z-index: 1000;
+            text-decoration: none;
+            border: none;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+        }
+        
+        /* Info Page */
+        .info-page {
+            display: none;
+            padding: 20px;
+            padding-bottom: 100px;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .info-page.active { display: block; }
+        
+        .info-content {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            line-height: 1.8;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .info-content h5 {
+            color: #667eea;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .info-content p, .info-content li {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .back-link {
+            color: #667eea;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        /* Toast */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+        
+        .toast {
+            background: var(--card-bg);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Volume Slider */
+        .volume-slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255,255,255,0.2);
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+        }
+        
+        /* Loading */
+        .loading-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--dark-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s;
+        }
+        
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.1);
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        /* Toggle Switch */
+        .form-switch .form-check-input {
+            background-color: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.2);
+        }
+        
+        .form-switch .form-check-input:checked {
+            background-color: #667eea;
+            border-color: #667eea;
+        }
+        
+        /* Responsive */
+        @media (max-width: 576px) {
+            .album-art { width: 150px; height: 150px; font-size: 3rem; }
+            .play-btn { width: 70px; height: 70px; font-size: 1.8rem; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>📻 M Radio Jakarta</h1>
-    <nav>
-      <a href="index.html">Beranda</a>
-      <a href="chart.html">Pop</a>
-      <a href="chart2.html">Dangdut</a>
-      <a href="ratecard.html">Rate Card</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="intro">
-        <section class="audio-player">
-        <h2>🎧 Sedang Mengudara</h2>
-        <div class="player-container">
-        <audio controls autoplay>
-        <source src="https://stream.zeno.fm/yvf78swnbd0uv" type="audio/mpeg">
-      Browser Anda tidak mendukung pemutar audio.
-    </audio>
-  </div>
-</section>
-<br>
-      <h2>Selamat Datang di M Radio Jakarta</h2>
-      <p>
-        Nikmati siaran musik terbaik sepanjang hari. Dengarkan lagu-lagu pilihan dari berbagai genre seperti pop, dangdut, dan hits terbaru lainnya.  
-        Jangan lupa follow kami di sosial media dan request lagu favoritmu sekarang juga!
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 M Radio Jakarta | Radio Online No. 1 Di Jakarta</p>
-    <div class="sosial-media">
-      <a href="https://instagram.com/mradio.id" target="_blank" title="Instagram">
-        <img src="https://img.icons8.com/fluency/32/instagram-new.png" alt="Instagram" />
-      </a>
-      <a href="" target="_blank" title="Facebook">
-        <img src="https://img.icons8.com/fluency/32/facebook-new.png" alt="Facebook" />
-      </a>
-      <a href="" target="_blank" title="YouTube">
-        <img src="https://img.icons8.com/fluency/32/youtube-play.png" alt="YouTube" />
-      </a>
+    <!-- Loading Screen -->
+    <div class="loading-overlay" id="loadingScreen">
+        <div class="loader"></div>
     </div>
-  </footer>
+    
+    <div class="bg-animation"></div>
+    
+    <!-- Header -->
+    <header class="app-header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="logo-text"><i class="bi bi-broadcast-pin"></i> RadioKu</div>
+                <div class="live-badge"><i class="bi bi-circle-fill" style="font-size: 0.5rem;"></i> LIVE</div>
+            </div>
+        </div>
+    </header>
 
-  <!-- Pop-up WhatsApp -->
-  <div class="popup-wa">
-    <a href="https://wa.me/6285710675351?text=Halo%20Admin%2C%20saya%20mau%20request%20lagu!" target="_blank">
-      <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" />
-    </a>
-  </div>
+    <!-- HOME PAGE -->
+    <main id="homePage" class="page-section" style="display: block;">
+        <div class="player-card">
+            <div class="album-art" id="albumArt"><i class="bi bi-music-note-beamed"></i></div>
+            <h4 class="mb-1">M Radio Jakarta</h4>
+            <p class="text-muted mb-4">Pop & Hits</p>
+            
+            <button class="play-btn" id="playBtn" onclick="togglePlay()">
+                <i class="bi bi-play-fill" id="playIcon"></i>
+            </button>
+            
+            <div class="mt-4 d-flex align-items-center gap-3">
+                <i class="bi bi-volume-down-fill text-muted"></i>
+                <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="80" oninput="setVolume(this.value)">
+                <i class="bi bi-volume-up-fill text-muted"></i>
+            </div>
+        </div>
+        
+        <div class="current-program-banner">
+            <h5 class="mb-1" id="currentProgram">Loading...</h5>
+            <p class="mb-0 opacity-75" id="currentHost">-</p>
+            <small class="d-block mt-2 opacity-50" id="currentTime"></small>
+        </div>
+        
+        <h6 class="section-title">Jadwal Program Hari Ini</h6>
+        <div id="programList"></div>
+    </main>
+
+    <!-- SETTINGS PAGE -->
+    <main id="settingsPage" class="settings-page">
+        <div class="settings-header">
+            <div class="settings-avatar" id="userAvatar"><i class="bi bi-person"></i></div>
+            <h5 class="mb-1" id="userName">Guest User</h5>
+            <p class="text-muted mb-0" id="userEmail">Login untuk mengakses fitur lengkap</p>
+        </div>
+        
+        <div class="auth-buttons" id="authButtons">
+            <button class="btn-auth btn-login" onclick="openModal('loginModal')">Login</button>
+            <button class="btn-auth btn-signup" onclick="openModal('signupModal')">Sign Up</button>
+        </div>
+        
+        <button class="btn-logout" id="logoutBtn" style="display: none;" onclick="logout()">
+            <i class="bi bi-box-arrow-right"></i> Logout
+        </button>
+        
+        <h6 class="section-title">Akun</h6>
+        <div class="settings-menu">
+            <div class="settings-item" onclick="openModal('editProfileModal')">
+                <div class="settings-icon" style="background: rgba(102, 126, 234, 0.2); color: #667eea;"><i class="bi bi-person-circle"></i></div>
+                <div class="settings-content">
+                    <div class="settings-title">Edit Profil</div>
+                    <div class="settings-subtitle">Ubah informasi akun</div>
+                </div>
+                <i class="bi bi-chevron-right text-muted"></i>
+            </div>
+            <div class="settings-item" onclick="openModal('passwordModal')">
+                <div class="settings-icon" style="background: rgba(46, 213, 115, 0.2); color: #2ed573;"><i class="bi bi-shield-lock"></i></div>
+                <div class="settings-content">
+                    <div class="settings-title">Ubah Password</div>
+                    <div class="settings-subtitle">Keamanan akun</div>
+                </div>
+                <i class="bi bi-chevron-right text-muted"></i>
+            </div>
+            <div class="settings-item" onclick="openModal('notifModal')">
+                <div class="settings-icon" style="background: rgba(255, 71, 87, 0.2); color: #ff4757;"><i class="bi bi-bell"></i></div>
+                <div class="settings-content">
+                    <div class="settings-title">Notifikasi</div>
+                    <div class="settings-subtitle">Atur preferensi</div>
+                </div>
+                <i class="bi bi-chevron-right text-muted"></i>
+            </div>
+        </div>
+        
+        <h6 class="section-title">Legal</h6>
+        <div class="settings-menu">
+            <div class="settings-item" onclick="showInfoPage('privacy')">
+                <div class="settings-icon" style="background: rgba(149, 165, 166, 0.2); color: #95a5a6;"><i class="bi bi-shield-check"></i></div>
+                <div class="settings-content">
+                    <div class="settings-title">Kebijakan Privasi</div>
+                    <div class="settings-subtitle">Perlindungan data Anda</div>
+                </div>
+                <i class="bi bi-chevron-right text-muted"></i>
+            </div>
+            <div class="settings-item" onclick="showInfoPage('terms')">
+                <div class="settings-icon" style="background: rgba(127, 140, 141, 0.2); color: #7f8c8d;"><i class="bi bi-file-text"></i></div>
+                <div class="settings-content">
+                    <div class="settings-title">Syarat & Ketentuan</div>
+                    <div class="settings-subtitle">Ketentuan penggunaan</div>
+                </div>
+                <i class="bi bi-chevron-right text-muted"></i>
+            </div>
+            <div class="settings-item" onclick="showInfoPage('about')">
+                <div class="settings-icon" style="background: rgba(155, 89, 182, 0.2); color: #9b59b6;"><i class="bi bi-info-circle"></i></div>
+                <div class="settings-content">
+                    <div class="settings-title">Tentang Aplikasi</div>
+                    <div class="settings-subtitle">Versi 2.0.0</div>
+                </div>
+                <i class="bi bi-chevron-right text-muted"></i>
+            </div>
+        </div>
+        
+        <h6 class="section-title">Dukungan</h6>
+        <div class="settings-menu">
+            <div class="settings-item" onclick="openModal('helpModal')">
+                <div class="settings-icon" style="background: rgba(26, 188, 156, 0.2); color: #1abc9c;"><i class="bi bi-question-circle"></i></div>
+                <div class="settings-content">
+                    <div class="settings-title">Pusat Bantuan</div>
+                    <div class="settings-subtitle">FAQ & Panduan</div>
+                </div>
+                <i class="bi bi-chevron-right text-muted"></i>
+            </div>
+            <div class="settings-item" onclick="openModal('contactModal')">
+                <div class="settings-icon" style="background: rgba(230, 126, 34, 0.2); color: #e67e22;"><i class="bi bi-envelope"></i></div>
+                <div class="settings-content">
+                    <div class="settings-title">Hubungi Kami</div>
+                    <div class="settings-subtitle">support@radioku.id</div>
+                </div>
+                <i class="bi bi-chevron-right text-muted"></i>
+            </div>
+        </div>
+        
+        <h6 class="section-title">Data</h6>
+        <div class="settings-menu">
+            <div class="settings-item" onclick="clearCache()">
+                <div class="settings-icon" style="background: rgba(231, 76, 60, 0.2); color: #e74c3c;"><i class="bi bi-trash"></i></div>
+                <div class="settings-content">
+                    <div class="settings-title">Hapus Cache</div>
+                    <div class="settings-subtitle">Bersihkan data temporary</div>
+                </div>
+            </div>
+            <div class="settings-item" onclick="deleteAccount()">
+                <div class="settings-icon" style="background: rgba(192, 57, 43, 0.2); color: #c0392b;"><i class="bi bi-exclamation-triangle"></i></div>
+                <div class="settings-content">
+                    <div class="settings-title">Hapus Akun</div>
+                    <div class="settings-subtitle">Permanen menghapus akun</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4 mb-5 text-muted">
+            <small>© 2026 M Radio Jakarta. All rights reserved.</small>
+        </div>
+    </main>
+
+    <!-- INFO PAGES -->
+    <main id="privacyPage" class="info-page">
+        <a class="back-link" onclick="showSettings()"><i class="bi bi-arrow-left"></i> Kembali</a>
+        <div class="info-content">
+            <h4><i class="bi bi-shield-check text-primary"></i> Kebijakan Privasi</h4>
+            <p class="text-muted">Terakhir diperbarui: 23 Februari 2024</p>
+            
+            <h5>1. Informasi yang Kami Kumpulkan</h5>
+            <p>Kami mengumpulkan informasi yang Anda berikan saat mendaftar, termasuk nama, email, dan preferensi musik Anda.</p>
+            
+            <h5>2. Penggunaan Informasi</h5>
+            <p>Informasi Anda digunakan untuk personalisasi konten, meningkatkan kualitas layanan, dan komunikasi terkait aplikasi.</p>
+            
+            <h5>3. Perlindungan Data</h5>
+            <p>Kami menggunakan enkripsi SSL dan praktik keamanan industri standar untuk melindungi data Anda.</p>
+            
+            <h5>4. Hak Pengguna</h5>
+            <p>Anda memiliki hak untuk mengakses, mengubah, atau menghapus data pribadi Anda kapan saja.</p>
+        </div>
+    </main>
+
+    <main id="termsPage" class="info-page">
+        <a class="back-link" onclick="showSettings()"><i class="bi bi-arrow-left"></i> Kembali</a>
+        <div class="info-content">
+            <h4><i class="bi bi-file-text text-primary"></i> Syarat & Ketentuan</h4>
+            
+            <h5>1. Penerimaan Syarat</h5>
+            <p>Dengan menggunakan RadioKu, Anda setuju untuk terikat oleh syarat dan ketentuan ini.</p>
+            
+            <h5>2. Penggunaan Layanan</h5>
+            <p>Anda setuju menggunakan aplikasi ini hanya untuk tujuan yang sah. Dilarang menggunakan aplikasi untuk aktivitas ilegal.</p>
+            
+            <h5>3. Akun Pengguna</h5>
+            <p>Anda bertanggung jawab untuk menjaga kerahasiaan informasi akun Anda.</p>
+            
+            <h5>4. Penghentian</h5>
+            <p>Kami berhak menangguhkan atau menghentikan akses Anda jika melanggar syarat ini.</p>
+        </div>
+    </main>
+
+    <main id="aboutPage" class="info-page">
+        <a class="back-link" onclick="showSettings()"><i class="bi bi-arrow-left"></i> Kembali</a>
+        <div class="info-content text-center">
+            <i class="bi bi-broadcast-pin" style="font-size: 4rem; color: #667eea;"></i>
+            <h4 class="mt-3">RadioKu</h4>
+            <p class="text-muted">Versi 2.0.0</p>
+            
+            <p class="mt-4">M Radio Jakarta adalah aplikasi streaming radio digital yang menghadirkan pengalaman mendengarkan radio modern dengan kualitas terbaik.</p>
+            
+            <h5 class="text-start mt-4">Fitur Unggulan</h5>
+            <ul class="text-start">
+                <li>Streaming 24/7 dengan kualitas HD</li>
+                <li>Program radio beragam</li>
+                <li>Request lagu via WhatsApp</li>
+                <li>Notifikasi program favorit</li>
+                <li>Background playback</li>
+            </ul>
+            
+            <p class="mt-4 text-muted">© 2026 M Media+.<br>All rights reserved.</p>
+        </div>
+    </main>
+
+    <!-- WhatsApp Button -->
+    <button class="whatsapp-btn" onclick="openWhatsApp()">
+        <i class="bi bi-whatsapp"></i>
+    </button>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a class="nav-item active" onclick="switchTab('home', this)" id="navHome">
+            <i class="bi bi-house-fill"></i>
+            <span>Home</span>
+        </a>
+        <a class="nav-item" onclick="switchTab('program', this)">
+            <i class="bi bi-calendar-week"></i>
+            <span>Program</span>
+        </a>
+        <a class="nav-item" onclick="switchTab('favorites', this)">
+            <i class="bi bi-heart-fill"></i>
+            <span>Favorit</span>
+        </a>
+        <a class="nav-item" onclick="switchTab('settings', this)" id="navSettings">
+            <i class="bi bi-gear-fill"></i>
+            <span>Setting</span>
+        </a>
+    </nav>
+
+    <!-- MODALS -->
+    
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-box-arrow-in-right text-primary"></i> Login</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="event.preventDefault(); login();">
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rememberMe">
+                                <label class="form-check-label" style="color: #aaa;">Ingat saya</label>
+                            </div>
+                            <a href="#" style="color: #667eea; text-decoration: none; font-size: 0.9rem;">Lupa password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100" style="background: var(--primary-gradient); border: none;">
+                            <i class="bi bi-box-arrow-in-right"></i> Login
+                        </button>
+                    </form>
+                    <hr style="border-color: rgba(255,255,255,0.1);">
+                    <div class="text-center">
+                        <p class="text-muted mb-2">Atau login dengan</p>
+                        <button class="btn btn-outline-light w-100 mb-2" onclick="socialLogin('google')">
+                            <i class="bi bi-google"></i> Google
+                        </button>
+                        <button class="btn btn-outline-light w-100" onclick="socialLogin('facebook')">
+                            <i class="bi bi-facebook"></i> Facebook
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <span class="text-muted">Belum punya akun?</span>
+                    <a href="#" onclick="switchModal('loginModal', 'signupModal')" style="color: #667eea; text-decoration: none;">Daftar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-person-plus text-success"></i> Sign Up</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="event.preventDefault(); signup();">
+                        <div class="mb-3">
+                            <label class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="signupName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="signupEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" id="signupPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Konfirmasi Password</label>
+                            <input type="password" class="form-control" id="signupConfirmPassword" required>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                            <label class="form-check-label" style="color: #aaa; font-size: 0.85rem;">
+                                Saya setuju dengan <a href="#" style="color: #667eea;">Syarat & Ketentuan</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Buat Akun</button>
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <span class="text-muted">Sudah punya akun?</span>
+                    <a href="#" onclick="switchModal('signupModal', 'loginModal')" style="color: #667eea; text-decoration: none;">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-person-circle text-primary"></i> Edit Profil</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-3">
+                        <div class="settings-avatar mx-auto" style="width: 80px; height: 80px;">
+                            <i class="bi bi-person"></i>
+                        </div>
+                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="document.getElementById('avatarInput').click()">Ganti Foto</button>
+                        <input type="file" id="avatarInput" style="display: none;" accept="image/*">
+                    </div>
+                    <form onsubmit="event.preventDefault(); saveProfile();">
+                        <div class="mb-3">
+                            <label class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="editName" value="Guest User">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Username</label>
+                            <input type="text" class="form-control" id="editUsername">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Bio</label>
+                            <textarea class="form-control" rows="2" placeholder="Ceritakan tentang diri Anda..."></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tanggal Lahir</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100" style="background: var(--primary-gradient); border: none;">Simpan Perubahan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div class="modal fade" id="passwordModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-shield-lock text-success"></i> Ubah Password</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="event.preventDefault(); changePassword();">
+                        <div class="mb-3">
+                            <label class="form-label">Password Saat Ini</label>
+                            <input type="password" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password Baru</label>
+                            <input type="password" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Konfirmasi Password Baru</label>
+                            <input type="password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Ubah Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Modal -->
+    <div class="modal fade" id="notifModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-bell text-danger"></i> Notifikasi</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3 p-3" style="background: rgba(255,255,255,0.05); border-radius: 10px;">
+                        <div>
+                            <div class="fw-bold">Program Favorit</div>
+                            <small class="text-muted">Pengingat program yang Anda suka</small>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" checked>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-3 p-3" style="background: rgba(255,255,255,0.05); border-radius: 10px;">
+                        <div>
+                            <div class="fw-bold">Request Lagu</div>
+                            <small class="text-muted">Status request lagu Anda</small>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" checked>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center p-3" style="background: rgba(255,255,255,0.05); border-radius: 10px;">
+                        <div>
+                            <div class="fw-bold">Update Aplikasi</div>
+                            <small class="text-muted">Info versi terbaru</small>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div class="modal fade" id="helpModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-question-circle text-success"></i> Pusat Bantuan</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="accordion" id="helpAccordion">
+                        <div class="accordion-item" style="background: transparent; border: 1px solid rgba(255,255,255,0.1);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#help1" style="background: transparent; color: white;">
+                                    Bagaimana cara request lagu?
+                                </button>
+                            </h2>
+                            <div id="help1" class="accordion-collapse collapse" data-bs-parent="#helpAccordion">
+                                <div class="accordion-body" style="color: #aaa;">
+                                    Klik tombol WhatsApp mengambang di pojok kanan bawah, isi form request lagu, dan kirim.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mt-2" style="background: transparent; border: 1px solid rgba(255,255,255,0.1);">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#help2" style="background: transparent; color: white;">
+                                    Apakah bisa mendengarkan offline?
+                                </button>
+                            </h2>
+                            <div id="help2" class="accordion-collapse collapse" data-bs-parent="#helpAccordion">
+                                <div class="accordion-body" style="color: #aaa;">
+                                    Saat ini RadioKu hanya mendukung streaming online. Pastikan Anda memiliki koneksi internet.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-envelope text-warning"></i> Hubungi Kami</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="event.preventDefault(); sendContact();">
+                        <div class="mb-3">
+                            <label class="form-label">Nama</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Subjek</label>
+                            <select class="form-select">
+                                <option>Pilih subjek...</option>
+                                <option>Laporan Bug</option>
+                                <option>Saran Fitur</option>
+                                <option>Kerjasama</option>
+                                <option>Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Pesan</label>
+                            <textarea class="form-control" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100" style="background: var(--primary-gradient); border: none;">Kirim Pesan</button>
+                    </form>
+                    <hr style="border-color: rgba(255,255,255,0.1);">
+                    <div class="text-center">
+                        <p class="text-muted mb-2">Atau hubungi kami:</p>
+                        <p class="mb-1"><i class="bi bi-envelope"></i> support@radioku.id</p>
+                        <p><i class="bi bi-telephone"></i> +62 812-3456-7890</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Global Variables
+        let isPlaying = false;
+        let audio = new Audio();
+        let currentUser = null;
+        let currentProgram = null;
+        
+        // Program Schedule
+        const programs = [
+            { id: 1, name: "Pop Hits", start: 8, end: 19, host: "Kak Fikri", status: "later" },
+            { id: 2, name: "Joget Ambyar", start: 19, end: 21, host: "Kak Fikri", status: "live" },
+            { id: 3, name: "Budaya Indo", start: 21, end: 23, host: "Kak Fikri", status: "next" },
+            { id: 4, name: "DJ Gen Z", start: 23, end: 0, host: "DJ Auto", status: "later" }
+        ];
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide loading screen
+            setTimeout(() => {
+                document.getElementById('loadingScreen').classList.add('hidden');
+            }, 1000);
+            
+            // Setup audio
+            audio.src = "https://s2.free-shoutcast.com/stream/18162";
+            audio.volume = 0.8;
+            
+            // Initialize program
+            updateProgram();
+            setInterval(updateProgram, 60000); // Update every minute
+            
+            // Setup media session
+            setupMediaSession();
+        });
+        
+        // Update Program based on time
+        function updateProgram() {
+            const hour = new Date().getHours();
+            const current = programs.find(p => hour >= p.start && hour < p.end) || programs[0];
+            
+            currentProgram = current;
+            document.getElementById('currentProgram').textContent = current.name;
+            document.getElementById('currentHost').textContent = current.host;
+            document.getElementById('currentTime').textContent = 
+                `${String(current.start).padStart(2,'0')}:00 - ${String(current.end).padStart(2,'0')}:00`;
+            
+            generateProgramList();
+        }
+        
+        // Generate Program List
+        function generateProgramList() {
+            const container = document.getElementById('programList');
+            const hour = new Date().getHours();
+            let html = '';
+            
+            programs.forEach(prog => {
+                let isActive = (hour >= prog.start && hour < prog.end);
+                let badge = '';
+                
+                if (isActive) {
+                    badge = '<span class="badge bg-danger">LIVE</span>';
+                } else if (hour < prog.start && (prog.start - hour) <= 2) {
+                    badge = '<span class="badge bg-warning text-dark">SEGERA</span>';
+                } else {
+                    badge = '<span class="badge bg-success">AKAN DATANG</span>';
+                }
+                
+                html += `
+                    <div class="program-card ${isActive ? 'active' : ''}">
+                        <div class="program-info">
+                            <h6>${prog.name}</h6>
+                            <small>${prog.host}</small>
+                        </div>
+                        <div class="text-end">
+                            <div class="program-time">${String(prog.start).padStart(2,'0')}:00 - ${String(prog.end).padStart(2,'0')}:00</div>
+                            ${badge}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+        
+        // Audio Controls
+        function togglePlay() {
+            const btn = document.getElementById('playIcon');
+            const art = document.getElementById('albumArt');
+            
+            if (isPlaying) {
+                audio.pause();
+                btn.className = 'bi bi-play-fill';
+                art.classList.remove('playing');
+                showToast('Radio dijeda', 'info');
+            } else {
+                audio.play().then(() => {
+                    btn.className = 'bi bi-pause-fill';
+                    art.classList.add('playing');
+                    showToast('Radio diputar', 'success');
+                }).catch(err => {
+                    console.error('Play error:', err);
+                    showToast('Gagal memutar radio', 'error');
+                });
+            }
+            isPlaying = !isPlaying;
+            updateMediaSession();
+        }
+        
+        function setVolume(value) {
+            audio.volume = value / 100;
+        }
+        
+        // Media Session API
+        function setupMediaSession() {
+            if ('mediaSession' in navigator) {
+                navigator.mediaSession.metadata = new MediaMetadata({
+                    title: 'RadioKu FM',
+                    artist: currentProgram ? currentProgram.name : 'Streaming Radio',
+                    album: 'RadioKu',
+                    artwork: [
+                        { src: 'https://via.placeholder.com/96x96/667eea/ffffff?text=R', sizes: '96x96' },
+                        { src: 'https://via.placeholder.com/128x128/667eea/ffffff?text=R', sizes: '128x128' },
+                        { src: 'https://via.placeholder.com/192x192/667eea/ffffff?text=R', sizes: '192x192' }
+                    ]
+                });
+                
+                navigator.mediaSession.setActionHandler('play', () => {
+                    if (!isPlaying) togglePlay();
+                });
+                
+                navigator.mediaSession.setActionHandler('pause', () => {
+                    if (isPlaying) togglePlay();
+                });
+            }
+        }
+        
+        function updateMediaSession() {
+            if ('mediaSession' in navigator && currentProgram) {
+                navigator.mediaSession.metadata.artist = currentProgram.name;
+                navigator.mediaSession.playbackState = isPlaying ? 'playing' : 'paused';
+            }
+        }
+        
+        // Navigation
+        function switchTab(tab, element) {
+            // Update nav active state
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
+            
+            // Hide all pages
+            document.getElementById('homePage').style.display = 'none';
+            document.getElementById('settingsPage').classList.remove('active');
+            document.querySelectorAll('.info-page').forEach(el => el.classList.remove('active'));
+            
+            // Show selected page
+            if (tab === 'home') {
+                document.getElementById('homePage').style.display = 'block';
+            } else if (tab === 'settings') {
+                document.getElementById('settingsPage').classList.add('active');
+            } else {
+                showToast('Fitur ' + tab + ' coming soon!', 'info');
+                document.getElementById('homePage').style.display = 'block';
+                document.getElementById('navHome').classList.add('active');
+                element.classList.remove('active');
+            }
+        }
+        
+        function showSettings() {
+            document.querySelectorAll('.info-page').forEach(el => el.classList.remove('active'));
+            document.getElementById('settingsPage').classList.add('active');
+        }
+        
+        function showInfoPage(page) {
+            document.getElementById('settingsPage').classList.remove('active');
+            document.getElementById(page + 'Page').classList.add('active');
+        }
+        
+        // Modal Functions
+        function openModal(id) {
+            const modal = new bootstrap.Modal(document.getElementById(id));
+            modal.show();
+        }
+        
+        function switchModal(from, to) {
+            bootstrap.Modal.getInstance(document.getElementById(from)).hide();
+            setTimeout(() => openModal(to), 300);
+        }
+        
+        // Auth Functions
+        function login() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if (email && password) {
+                currentUser = { 
+                    name: email.split('@')[0], 
+                    email: email,
+                    username: email.split('@')[0]
+                };
+                updateUserUI();
+                bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
+                showToast('Login berhasil! Selamat datang, ' + currentUser.name, 'success');
+            } else {
+                showToast('Email dan password wajib diisi!', 'error');
+            }
+        }
+        
+        function signup() {
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const pass = document.getElementById('signupPassword').value;
+            const confirm = document.getElementById('signupConfirmPassword').value;
+            const agree = document.getElementById('agreeTerms').checked;
+            
+            if (!agree) {
+                showToast('Anda harus menyetujui syarat dan ketentuan!', 'error');
+                return;
+            }
+            
+            if (pass !== confirm) {
+                showToast('Password dan konfirmasi tidak cocok!', 'error');
+                return;
+            }
+            
+            if (name && email && pass) {
+                currentUser = { name: name, email: email, username: name.toLowerCase().replace(/\s/g, '') };
+                updateUserUI();
+                bootstrap.Modal.getInstance(document.getElementById('signupModal')).hide();
+                showToast('Akun berhasil dibuat! Selamat datang, ' + name, 'success');
+            } else {
+                showToast('Semua field wajib diisi!', 'error');
+            }
+        }
+        
+        function logout() {
+            if (confirm('Yakin ingin logout?')) {
+                currentUser = null;
+                updateUserUI();
+                showToast('Logout berhasil', 'info');
+            }
+        }
+        
+        function updateUserUI() {
+            const nameEl = document.getElementById('userName');
+            const emailEl = document.getElementById('userEmail');
+            const avatarEl = document.getElementById('userAvatar');
+            const authBtns = document.getElementById('authButtons');
+            const logoutBtn = document.getElementById('logoutBtn');
+            
+            if (currentUser) {
+                nameEl.textContent = currentUser.name;
+                emailEl.textContent = currentUser.email;
+                avatarEl.innerHTML = '<i class="bi bi-person-check"></i>';
+                avatarEl.classList.add('logged-in');
+                authBtns.style.display = 'none';
+                logoutBtn.style.display = 'block';
+                
+                // Update edit profile form
+                document.getElementById('editName').value = currentUser.name;
+                document.getElementById('editUsername').value = currentUser.username || '';
+            } else {
+                nameEl.textContent = 'Guest User';
+                emailEl.textContent = 'Login untuk mengakses fitur lengkap';
+                avatarEl.innerHTML = '<i class="bi bi-person"></i>';
+                avatarEl.classList.remove('logged-in');
+                authBtns.style.display = 'flex';
+                logoutBtn.style.display = 'none';
+            }
+        }
+        
+        function socialLogin(provider) {
+            showToast('Menghubungkan ke ' + provider + '...', 'info');
+            setTimeout(() => {
+                currentUser = { name: 'User ' + provider, email: 'user@' + provider + '.com' };
+                updateUserUI();
+                bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
+                bootstrap.Modal.getInstance(document.getElementById('signupModal')).hide();
+                showToast('Login dengan ' + provider + ' berhasil!', 'success');
+            }, 1500);
+        }
+        
+        function saveProfile() {
+            const newName = document.getElementById('editName').value;
+            if (newName && currentUser) {
+                currentUser.name = newName;
+                updateUserUI();
+            }
+            bootstrap.Modal.getInstance(document.getElementById('editProfileModal')).hide();
+            showToast('Profil berhasil diperbarui', 'success');
+        }
+        
+        function changePassword() {
+            bootstrap.Modal.getInstance(document.getElementById('passwordModal')).hide();
+            showToast('Password berhasil diubah', 'success');
+        }
+        
+        function sendContact() {
+            bootstrap.Modal.getInstance(document.getElementById('contactModal')).hide();
+            showToast('Pesan berhasil dikirim! Kami akan membalas segera.', 'success');
+        }
+        
+        function clearCache() {
+            if (confirm('Yakin ingin menghapus cache aplikasi?')) {
+                showToast('Cache berhasil dihapus', 'success');
+            }
+        }
+        
+        function deleteAccount() {
+            if (confirm('PERINGATAN: Akun Anda akan dihapus PERMANEN! Tindakan ini tidak dapat dibatalkan. Lanjutkan?')) {
+                if (confirm('Ini adalah konfirmasi terakhir. Yakin ingin menghapus akun?')) {
+                    currentUser = null;
+                    updateUserUI();
+                    showToast('Akun telah dihapus', 'info');
+                }
+            }
+        }
+        
+        function openWhatsApp() {
+            const text = encodeURIComponent('Halo RadioKu! Saya ingin request lagu.');
+            window.open('https://wa.me/6285710675351?text=' + text, '_blank');
+        }
+        
+        // Toast Notification
+        function showToast(message, type) {
+            const toastContainer = document.querySelector('.toast-container');
+            const toastId = 'toast-' + Date.now();
+            
+            const colors = {
+                success: 'bg-success',
+                error: 'bg-danger',
+                info: 'bg-info',
+                warning: 'bg-warning'
+            };
+            
+            const icons = {
+                success: 'bi-check-circle',
+                error: 'bi-x-circle',
+                info: 'bi-info-circle',
+                warning: 'bi-exclamation-triangle'
+            };
+            
+            const toastHTML = `
+                <div id="${toastId}" class="toast align-items-center text-white ${colors[type]} border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            <i class="bi ${icons[type]} me-2"></i>${message}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            `;
+            
+            toastContainer.insertAdjacentHTML('beforeend', toastHTML);
+            const toastElement = document.getElementById(toastId);
+            const toast = new bootstrap.Toast(toastElement, { delay: 3000 });
+            toast.show();
+            
+            toastElement.addEventListener('hidden.bs.toast', () => {
+                toastElement.remove();
+            });
+        }
+        
+        // Handle visibility change for background playback
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && isPlaying) {
+                console.log('App in background, radio continues playing');
+            }
+        });
+    </script>
 </body>
 </html>
